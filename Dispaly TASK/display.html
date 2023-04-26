@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form valadation</title>
+    <style>
+   .tab{
+      border: 2px solid black;
+   }
+   #tabelDta{
+    border: 2px solid black;
+   }
+   table{
+    border: 2px solid black;
+   }
+
+    </style>
+</head>
+
+<body>
+    <table>
+        <div class="container">
+          
+
+            <form class="form" id="form" name="myForm">
+                <div class="form-control">
+                    <label>Name</label><br>
+                    <input type="text" name="" id="Username" placeholder="Enter Your full name" width="">
+
+                </div>
+                <br>
+
+                <div class="form-control">
+                    <label>Email</label><br>
+                    <input type="text" name="" id="Email" placeholder="Enter your mail ">
+                </div>
+                <br>
+                <div class=form-control>
+                    <label>Phone Number</label><br>
+                    <input type="number" name="" id="PhoneNumber" placeholder="Enter your Phone number ">
+                </div>
+                <br>
+               
+            
+
+            </form>
+            <button onclick="displayTable()">Submit</button>
+
+            <!-- to add row in table by  -->
+            
+
+        </div>
+
+        <!-- <button onclick="deleteTable()">delete</button> -->
+
+        <table class="tab">
+            <thead border="2px" >
+                <tr>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Phonenumber</th>
+                    
+                </tr>
+            </thead>
+            <tbody id="tableData">
+                <tr></tr>
+            </tbody>
+        </table>
+
+        <script>
+            let tableData = document.getElementById("tableData");
+  
+            let userList = [];
+           
+            //for storing user input data in variables by using "id" html
+            var Username = document.getElementById("Username")
+            var Email = document.getElementById("Email")
+            var Phonenumber = document.getElementById("PhoneNumber")
+           
+            //var 
+            //buttonclick function
+            displayTable = () => {
+
+                var Object = {
+                    name: Username.value,
+                    mail: Email.value,
+                    Phone: Phonenumber.value,
+                    
+                }
+
+                //for pushing the object created by the user input to the array "userlist"
+                userList.push(Object);
+                console.log(userList);
+
+               
+
+
+                //for getting user input as output at html table
+                var save = tableData.innerHTML;
+                save = save +
+                    `<tr>
+                        <td>${Object.name}</td>
+                        <td>${Object.mail}</td>
+                        <td>${Object.Phone}</td>
+                      
+                        </tr>`
+
+                tableData.innerHTML = save;
+
+              
+
+            }
+
+
+
+
+        </script>
+
+</body>
+
+</html>
